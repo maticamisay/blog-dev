@@ -1,7 +1,7 @@
 import React from "react";
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid ">
         <button
           className="navbar-toggler"
