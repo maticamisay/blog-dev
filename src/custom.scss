@@ -1,4 +1,14 @@
-$primary:#DCD7C9;
+$primary:#A27B5C;
 $light:#DCD7C9;
 $dark:#3F4E4F;
+
+.navbar-nav{
+    align-items: center;
+}
+.navbar-expand-md .navbar-collapse {
+    justify-content: flex-end;
+}
+.swiper-wrapper {
+margin-bottom: 2rem;
+}
 @import '~bootstrap/scss/bootstrap.scss';
