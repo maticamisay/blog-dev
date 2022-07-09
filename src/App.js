@@ -2,6 +2,8 @@ import './App.css';
 import Categories from './components/Categories';
 import Hero from './components/Hero';
 import Navbar from './components/NavBar';
+import UltimosPosts from './containers/ultimosPosts';
+
 
 function App() {
   return (
@@ -9,7 +11,7 @@ function App() {
     <Navbar />
     <Hero />
     <Categories />
-    <h1 className='bg-light'>Hola</h1>
+    <UltimosPosts />
     </>
   );
 }
