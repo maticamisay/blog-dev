@@ -1,14 +1,18 @@
 import React from "react";
 import Post from "../components/Post";
+import "../styles/containers/ultimosPosts.css";
 
 const UltimosPosts = () => {
   return (
-    <>
-      <div className="container text-center">
-        <h2>Últimos posts</h2>
+    <section>
+      <h2 className="text-center">Últimos posts</h2>
+      <div className="container posts-container">
+        <Post />
+        <Post />
+        <Post />
         <Post />
       </div>
-    </>
+    </section>
   );
 };
 

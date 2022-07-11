@@ -1,0 +1,23 @@
+section {
+  margin-top: 6rem;
+}
+
+.posts-container {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 1.6rem;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .posts-container {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media (max-width: 600px) {
+  .posts-container {
+    grid-template-columns: 300px;
+  }
+}
