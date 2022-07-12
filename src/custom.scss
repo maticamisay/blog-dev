@@ -18,4 +18,15 @@ margin-bottom: 2rem;
 .swiper-slide{
     padding: 0 2rem;
 }
+
+.tags-container{
+    display: flex;
+    justify-content: center;
+}
+.tags{
+    width: 951px;
+}
+.tags-link{
+    padding-right: .5rem
+}
 @import '~bootstrap/scss/bootstrap.scss';

@@ -1,7 +1,7 @@
-.card{
+.post{
   padding-bottom: 1rem;
 }
-.card-title {
+.post-title {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -9,9 +9,9 @@
   -webkit-box-orient: vertical;
 }
 
-.card-body{
+.post-body{
   display: flex;
 }
-.card-icon{
+.post-icon{
 font-size: 2rem;
 }
