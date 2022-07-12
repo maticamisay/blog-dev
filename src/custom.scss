@@ -18,15 +18,10 @@ margin-bottom: 2rem;
 .swiper-slide{
     padding: 0 2rem;
 }
+section{
+    flex-direction: column;
+}
 
-.tags-container{
-    display: flex;
-    justify-content: center;
-}
-.tags{
-    width: 951px;
-}
-.tags-link{
-    padding-right: .5rem
-}
+$enable-grid-classes: false;
+$enable-cssgrid: true;
 @import '~bootstrap/scss/bootstrap.scss';

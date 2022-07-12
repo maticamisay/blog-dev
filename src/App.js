@@ -5,6 +5,7 @@ import Navbar from './components/NavBar';
 import Tags from './components/Tags';
 import PostContainer from './containers/PostContainer';
 import Buscador from './components/Buscador';
+import MasVistos from './components/MasVistos';
 
 
 
@@ -14,8 +15,9 @@ function App() {
     <Navbar />
     <Hero />
     <Categories />
-    <PostContainer title={'Últimos Posts'} btnTitle={'Ver más'} />
-    <PostContainer title={'Más Leidos'} btnTitle={'Ver más'} />
+    {/* <PostContainer title={'Últimos Posts'} btnTitle={'Ver más'} /> */}
+    {/* <PostContainer title={'Más Leidos'} btnTitle={'Ver más'} /> */}
+    <MasVistos />
     <Tags title={'Tags'}/>
     <Buscador />
     </>

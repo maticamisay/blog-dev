@@ -6,7 +6,7 @@ import { IconContext } from "react-icons";
 
 const Post = () => {
   return (
-    <Card className="container bg-light post">
+    <Card className="g-col-12 g-col-sm-6 g-col-md-4 g-col-lg-3 bg-light post mt-5">
       <Card.Body className="post-body">
         <Card.Title className="post-title">
           {" "}

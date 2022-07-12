@@ -1,0 +1,22 @@
+.tags-container {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.tags {
+  width: 951px;
+}
+.tags-link {
+  padding-right: 0.5rem;
+}
+@media (max-width: 1024px) {
+    .tags {
+        width: 632px;
+      }
+}
+
+@media (max-width: 650px) {
+    .tags {
+        width: 300px;
+      }
+}

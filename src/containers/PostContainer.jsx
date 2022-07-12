@@ -5,7 +5,7 @@ import "../styles/containers/PostContainer.css";
 
 const PostContainer = ({ title, btnTitle }) => {
   return (
-    <section className="d-flex row">
+    <section className="d-flex container m-auto mt-5">
       <h2 className="text-center">{title}</h2>
       <div className="container posts-container">
         <Post />
