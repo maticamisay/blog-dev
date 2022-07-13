@@ -21,7 +21,25 @@ margin-bottom: 2rem;
 section{
     flex-direction: column;
 }
-
-$enable-grid-classes: false;
-$enable-cssgrid: true;
+// post layout
+.post-layout{
+    margin-top: 6rem;
+}
+// postlayout btn
+.btn-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+.btn-container-col{
+    padding: 0 calc(1.5rem * .5);
+}
+.btn-more{
+    width: 100%;
+}
+@media (max-width:576px) {
+    .row{
+        justify-content: center
+    }
+}
 @import '~bootstrap/scss/bootstrap.scss';
