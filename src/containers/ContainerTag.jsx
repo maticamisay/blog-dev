@@ -1,9 +1,8 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
 import TagLayout from "../Layouts/TagLayout";
 
-const ContainerTag = ({ children }) => {
-  return <TagLayout>{children}</TagLayout>;
+const ContainerTag = ({ children, title }) => {
+  return <TagLayout title={title}>{children}</TagLayout>;
 };
 
 export default ContainerTag;

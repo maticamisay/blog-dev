@@ -1,8 +1,7 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "../styles/post.css";
 import { BiLike } from "react-icons/bi";
-import { IconContext } from "react-icons";
 import Col from "react-bootstrap/Col";
 
 const Post = () => {

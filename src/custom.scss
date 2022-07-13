@@ -1,45 +1,65 @@
-$primary:#A27B5C;
-$light:#DCD7C9;
-$dark:#3F4E4F;
+$primary: #a27b5c;
+$light: #dcd7c9;
+$dark: #3f4e4f;
 
-.navbar-nav{
-    align-items: center;
+.navbar-nav {
+  align-items: center;
 }
 .navbar-expand-md .navbar-collapse {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
-.swiper{
-padding: 4rem 0!important;
+.swiper {
+  padding: 4rem 0 !important;
 }
 
 .swiper-wrapper {
-margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
-.swiper-slide{
-    padding: 0 2rem;
+.swiper-slide {
+  padding: 0 2rem;
 }
-section{
-    flex-direction: column;
+section {
+  flex-direction: column;
 }
 // post layout
-.post-layout{
-    margin-top: 6rem;
+.post-layout {
+  margin-top: 6rem;
 }
 // postlayout btn
-.btn-container{
-    display: flex;
+.btn-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.btn-container-col {
+  padding: 0 calc(1.5rem * 0.5);
+}
+.btn-more {
+  width: 100%;
+}
+
+// tags
+.contenedor {
+  margin-top: 4rem;
+}
+.tags-link {
+  padding-right: 0.5rem;
+}
+@media (max-width: 576px) {
+  .row {
     justify-content: center;
-    padding-top: 1rem;
+  }
 }
-.btn-container-col{
-    padding: 0 calc(1.5rem * .5);
+// footer
+.footer{
+  margin-top: 4rem;
+  padding: 2rem 0;
 }
-.btn-more{
-    width: 100%;
+.row-footer {
+  justify-content: center;
 }
-@media (max-width:576px) {
-    .row{
-        justify-content: center
-    }
+.row-footer .row{
+  margin-left: 0;
+  justify-content: flex-start
 }
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";

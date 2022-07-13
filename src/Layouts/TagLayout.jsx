@@ -2,12 +2,11 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Tags from "../components/Tags";
 
-const TagLayout = () => {
+const TagLayout = ({ title }) => {
   return (
-    <Container>
+    <Container className="contenedor">
       <Container>
-
-        <Tags />
+        <Tags title={title} />
       </Container>
     </Container>
   );

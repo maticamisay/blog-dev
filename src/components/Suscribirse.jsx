@@ -1,25 +1,25 @@
 import React from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 
-const Buscador = () => {
+const Suscribirse = ({ title, description }) => {
   return (
-    <Container className="contenedor">
+    <Container>
       <Row>
         <Col lg={12} md={12} sm={12} xs={10}>
           <Card className="bg-light">
             <Card.Body>
-              <Card.Title>¿No encontraste lo que buscabas?</Card.Title>
+              <Card.Title>{title}</Card.Title>
                 <Form>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Proba acá</Form.Label>
-                    <Form.Control
-                      type="email"
-                      placeholder="Ingrese su búsqueda"
-                    />
+                    <Form.Label>{description}</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                      Nunca compartiremos su correo electrónico con nadie más.
+                    </Form.Text>
                   </Form.Group>
 
                   <Button variant="primary" type="submit">
-                    Buscar
+                    Suscribirme
                   </Button>
                 </Form>
             </Card.Body>
@@ -30,4 +30,4 @@ const Buscador = () => {
   );
 };
 
-export default Buscador;
+export default Suscribirse;
