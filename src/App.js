@@ -17,6 +17,7 @@ function App() {
   const getFecht = async () => {
     try {
       const resp = await fetch('http://localhost:3001/api/posts')
+      // const resp = await fetch('https://blog-dev-back.herokuapp.com/')
       const dataParse = await resp.json()
       setData(dataParse)
     } catch (error) {

@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 
 const PostLayout = ({ children, title, titleBtn }) => {
   return (
-    <Container className="post-layout">
+    <Container className="post-layout bg-light rounded py-3">
       <Container>
         <h2>{title}</h2>
         {children}
