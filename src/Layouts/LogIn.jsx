@@ -1,9 +1,35 @@
-import React from 'react'
+import React from "react";
+import { Button, Col, Container, Form } from "react-bootstrap";
 
-const LogIn = () => {
+const Login = () => {
   return (
-    <div>LogIn</div>
-  )
-}
+    <>
+      <Container className="d-flex justify-content-center align-items-center my-5 login-container">
+        <Col lg={8} md={4} sm={6} xs={10}>
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
 
-export default LogIn
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Check me out" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Col>
+      </Container>
+    </>
+  );
+};
+
+export default Login;

@@ -8,12 +8,15 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <>
       <Navbar collapseOnSelect bg="dark" variant="dark" expand="md">
         <Container>
-          <Navbar.Brand href="#home">Blog</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to={"/"}>Blog</Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="px-3">
@@ -52,8 +55,8 @@ const NavBar = () => {
               <Button variant="primary">Search</Button>
             </Form>
           </Navbar.Collapse>
-          <Nav.Link href="#diseño-ui" className="px-1">
-            Iniciar Sesion
+          <Nav.Link className="px-1">
+            <Link to={"/login"}>Iniciar Sesion</Link>
           </Nav.Link>
         </Container>
       </Navbar>
