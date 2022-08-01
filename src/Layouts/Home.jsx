@@ -9,6 +9,7 @@ import ContainerBuscador from "../containers/ContainerBuscador";
 
 const Home = () => {
   const [data, setData] = useState("");
+
   useEffect(() => {
     postService.getAll().then((initialPosts) => {
       setData(initialPosts);
