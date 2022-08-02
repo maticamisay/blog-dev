@@ -13,7 +13,6 @@ import LoginContext from "../context/LoginContext";
 
 const NavBar = () => {
   const { user } = useContext(LoginContext);
-  console.log(user);
   return (
     <>
       <Navbar collapseOnSelect bg="dark" variant="dark" expand="md">
