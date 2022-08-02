@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 import {
   Navbar,
   Container,
@@ -9,13 +9,19 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import LoginContext from "../context/LoginContext";
+
 const NavBar = () => {
+  const { user } = useContext(LoginContext);
+  console.log(user);
   return (
     <>
       <Navbar collapseOnSelect bg="dark" variant="dark" expand="md">
         <Container>
           <Navbar.Brand>
-            <Link to={"/"} className='navbar-brand'>Junior FullStack</Link>
+            <Link to={"/"} className="navbar-brand">
+              Junior FullStack
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -44,9 +50,20 @@ const NavBar = () => {
               <Nav.Link href="#diseño-ui" className="px-1">
                 Diseño Ui
               </Nav.Link>
-              <Nav.Item className="px-1">
-                <Link to={"/login"} className='nav-link'>Iniciar Sesion</Link>
-              </Nav.Item>
+
+              {user ? (
+                <Nav.Item className="px-1">
+                  <Link to={"/admin"} className="nav-link">
+                    Admin Panel
+                  </Link>
+                </Nav.Item>
+              ) : (
+                <Nav.Item className="px-1">
+                  <Link to={"/login"} className="nav-link">
+                    Iniciar Sesion
+                  </Link>
+                </Nav.Item>
+              )}
             </Nav>
             <Form className="d-flex">
               <FormControl
