@@ -1,16 +1,31 @@
 import React from "react";
 import { Button, Col, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import LoginContext from "../context/LoginContext";
+import { useEffect } from "react";
 
 const Login = () => {
-  const { username, setUsername, password, setPassword, handleLogin } =
-    useContext(LoginContext);
+  const {
+    isLoggedIn,
+    username,
+    setUsername,
+    password,
+    setPassword,
+    handleLogin,
+  } = useContext(LoginContext);
+  let navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleLogin(username,password);
+    handleLogin(username, password);
   };
+  const Navigate = () => {
+    isLoggedIn && navigate("/admin");
+  };
+  useEffect(() => {
+    Navigate();
+  }, [isLoggedIn]);
+
   return (
     <Container className="d-flex justify-content-center align-items-center my-5 login-container">
       <Col lg={8} md={8} sm={10} xs={10}>

@@ -5,7 +5,7 @@ const getAll = () => {
     const request = axios.get(baseUrl)
     return request.then(res => res.data)
 }
-const create = newObject => {
+const create = (newObject,{token}) => {
     const request = axios.post(baseUrl, newObject)
     return request.then(res => res.data)
 }

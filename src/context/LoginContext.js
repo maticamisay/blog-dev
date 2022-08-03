@@ -7,13 +7,14 @@ export function LoginProvider({ defaultValue = [], children }) {
     const [username, setUsername] = useState(defaultValue);
     const [password, setPassword] = useState(defaultValue);
     const [errorMessage, setErrorMessage] = useState(defaultValue);
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [user, setUser] = useState(false);
 
-    const handleLogin = async ( username, password) => {
+    const handleLogin = async (username, password) => {
         try {
             const user = await loginServices.login({ username, password });
             setUser(user);
+            setIsLoggedIn(true);
             setUsername("");
             setPassword("");
         } catch (e) {
@@ -28,7 +29,7 @@ export function LoginProvider({ defaultValue = [], children }) {
         }
     };
     return (
-        <LoginContext.Provider value={{ username, setUsername, password, setPassword, handleLogin, errorMessage, user }}>
+        <LoginContext.Provider value={{ isLoggedIn, username, setUsername, password, setPassword, handleLogin, errorMessage, user }}>
             {children}
         </LoginContext.Provider>
     )
