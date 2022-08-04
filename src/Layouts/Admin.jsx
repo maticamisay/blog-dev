@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import LoginContext from "../context/LoginContext";
 
 const Admin = () => {
@@ -15,14 +16,27 @@ const Admin = () => {
             <h2>¿Que deseas hacer?</h2>
             <Container className="d-grid pt-3">
               <Row className="justify-content-center">
-                <Col 
-                className="row gap-3"
-                lg={6} md={8} sm={10} xs={12}
-                >
-                  <Button variant="outline-primary">Crear un nuevo Post</Button>
-                  <Button variant="outline-dark">Ver mis Posts</Button>
-                  <Button variant="outline-primary">Ver mi perfil</Button>
-                  <Button variant="outline-dark">Ver mis notas</Button>
+                <Col className="row gap-3" lg={6} md={8} sm={10} xs={12}>
+                  <Link to={"create"}>
+                    <Button variant="outline-primary" className="container">
+                      Crear un nuevo Post
+                    </Button>
+                  </Link>
+                  <Link to={"myposts"}>
+                    <Button variant="outline-dark" className="container">
+                      Ver mis Posts
+                    </Button>
+                  </Link>
+                  <Link to={"perfil"}>
+                    <Button variant="outline-primary" className="container">
+                      Ver mi perfil
+                    </Button>
+                  </Link>
+                  <Link to={"myposts"}>
+                    <Button variant="outline-dark" className="container">
+                      Ver mis notas
+                    </Button>
+                  </Link>
                 </Col>
               </Row>
             </Container>
