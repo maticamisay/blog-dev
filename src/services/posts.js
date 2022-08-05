@@ -1,12 +1,19 @@
 import axios from "axios";
 const baseUrl = 'http://localhost:3001/api/posts'
 
+
+
 const getAll = () => {
     const request = axios.get(baseUrl)
     return request.then(res => res.data)
 }
-const create = (newObject,{token}) => {
-    const request = axios.post(baseUrl, newObject)
+const create = (newObject, { token }) => {
+    const config = {
+        headers: {
+            Authorization: token
+        }
+    }
+    const request = axios.post(baseUrl, newObject, config)
     return request.then(res => res.data)
 }
 const update = (id, newObject) => {

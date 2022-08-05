@@ -1,6 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import loginServices from "../services/login";
-
 const LoginContext = createContext('');
 
 export function LoginProvider({ defaultValue = [], children }) {
@@ -9,12 +8,17 @@ export function LoginProvider({ defaultValue = [], children }) {
     const [errorMessage, setErrorMessage] = useState(defaultValue);
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [user, setUser] = useState(false);
+    const [token, setToken] = useState(null)
 
     const handleLogin = async (username, password) => {
+
         try {
             const user = await loginServices.login({ username, password });
             setUser(user);
             setIsLoggedIn(true);
+            window.localStorage.setItem(
+                'loggedPostAppUser', JSON.stringify(user)
+            )
             setUsername("");
             setPassword("");
         } catch (e) {
@@ -27,9 +31,21 @@ export function LoginProvider({ defaultValue = [], children }) {
                 setErrorMessage(null);
             }, 5000);
         }
-    };
+    }
+    useEffect(() => {
+      isLogged()
+    }, [])
+    const isLogged = () => {
+        const loggedUserJSON = window.localStorage.getItem("loggedPostAppUser");
+        if (loggedUserJSON) {
+            const user = JSON.parse(loggedUserJSON);
+            setUser(user);
+            setIsLoggedIn(true);
+        }
+    }
+    
     return (
-        <LoginContext.Provider value={{ isLoggedIn, username, setUsername, password, setPassword, handleLogin, errorMessage, user }}>
+        <LoginContext.Provider value={{ token, setToken, isLoggedIn, username, setUsername, password, setPassword, handleLogin, errorMessage, user }}>
             {children}
         </LoginContext.Provider>
     )

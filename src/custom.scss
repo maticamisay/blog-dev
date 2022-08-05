@@ -66,10 +66,18 @@ section {
 .login-container {
   height: 60vh;
 }
-// 
-.ck-editor__editable_inline{
-  min-height: 40vh !important;
-  max-height: 40vh !important;
+//
+.ql-editor.ql-blank {
+  min-height: 50px !important;
+  max-height: 50px !important;
+  border: 1px solid black;
+}
+.ql-editor {
+  min-height: 50px !important;
+  border: 1px solid black;
+}
+.ql-toolbar.ql-snow {
+  border: 1px solid black!important;
 }
 
 @import "~bootstrap/scss/bootstrap.scss";
