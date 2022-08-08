@@ -7,7 +7,7 @@ const getAll = () => {
     const request = axios.get(baseUrl)
     return request.then(res => res.data)
 }
-const create = (newObject, { token }) => {
+const create = (newObject,  {token} ) => {
     const config = {
         headers: {
             Authorization: token

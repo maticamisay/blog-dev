@@ -10,6 +10,7 @@ import CreatePost from './AdminLayout/Components/CreatePost';
 import PrivateRoute from './Routes/PrivateRoute';
 import { useContext, useEffect } from 'react';
 import MisPosts from './AdminLayout/Components/MisPosts';
+import PostDetail from './components/PostDetail';
 
 function App() {
   const { isLogged } = useContext(LoginContext)
@@ -27,6 +28,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/login' element={<Login />} />
+              <Route path='/post/:postId' element={<PostDetail />} />
               <Route path='/admin'
                 element={
                   <PrivateRoute>

@@ -6,10 +6,13 @@ import "react-quill/dist/quill.bubble.css";
 import "react-quill/dist/quill.snow.css";
 import LoginContext from "../../context/LoginContext.js";
 import postServices from "../../services/posts.js";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState([]);
+  const [content2, setContent2] = useState([]);
+
 
   const { token, setToken } = useContext(LoginContext);
   const loggedUserJSON = window.localStorage.getItem("loggedNoteAppUser");
@@ -33,18 +36,23 @@ const CreatePost = () => {
       ["clean"],
     ],
   };
-  // function createMarkup() {
-  //   return { __html: value };
-  // }
+  let navigate = useNavigate();
   const addPost = (e) => {
     e.preventDefault();
     const postObject = {
       title,
-      content,
+      content: [content,content2]
     };
-    postServices.create(postObject, { token }).then((returnedPost) => {
-      console.log(returnedPost);
-    });
+    console.log(postObject);
+    postServices.create(postObject, { token }).then(
+      (returnedPost) => {
+        console.log(returnedPost);
+      },
+      function (reason) {
+        console.log("reason"); // Error!
+        navigate("/login");
+      }
+    );
   };
   return (
     <Container className="mt-5">
@@ -62,6 +70,12 @@ const CreatePost = () => {
         modules={modules}
         value={content}
         onChange={setContent}
+      />
+      <ReactQuill
+        theme="snow"
+        modules={modules}
+        value={content2}
+        onChange={setContent2}
       />
       <Button className="mt-3" onClick={addPost}>
         Crear

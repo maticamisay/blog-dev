@@ -39,6 +39,7 @@ export function LoginProvider({ defaultValue = [], children }) {
             const localLoggedUser = window.localStorage.getItem("loggedPostAppUser");
             const { username, token } = JSON.parse(localLoggedUser);
             const tokencito = `Bearer ${token}`
+            setToken(tokencito)
             loginServices.checkJWT(username, tokencito).then(e => {
                 if (e.status == 200) {
                     setUser(e.data.user);
