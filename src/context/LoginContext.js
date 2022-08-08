@@ -10,6 +10,7 @@ export function LoginProvider({ defaultValue = [], children }) {
     const [user, setUser] = useState(false);
     const [token, setToken] = useState(null)
 
+
     const handleLogin = async (username, password) => {
 
         try {
@@ -32,20 +33,24 @@ export function LoginProvider({ defaultValue = [], children }) {
             }, 5000);
         }
     }
-    useEffect(() => {
-      isLogged()
-    }, [])
-    const isLogged = () => {
-        const loggedUserJSON = window.localStorage.getItem("loggedPostAppUser");
-        if (loggedUserJSON) {
-            const user = JSON.parse(loggedUserJSON);
-            setUser(user);
-            setIsLoggedIn(true);
+
+    const isLogged = async () => {
+        try {
+            const localLoggedUser = window.localStorage.getItem("loggedPostAppUser");
+            const { username, token } = JSON.parse(localLoggedUser);
+            const tokencito = `Bearer ${token}`
+            loginServices.checkJWT(username, tokencito).then(e => {
+                if (e.status == 200) {
+                    setUser(e.data.user);
+                    setIsLoggedIn(true);
+                }
+            })
+        } catch (e) {
+            console.log(e)
         }
     }
-    
     return (
-        <LoginContext.Provider value={{ token, setToken, isLoggedIn, username, setUsername, password, setPassword, handleLogin, errorMessage, user }}>
+        <LoginContext.Provider value={{ token, setToken, isLogged, isLoggedIn, username, setUsername, password, setPassword, handleLogin, errorMessage, user }}>
             {children}
         </LoginContext.Provider>
     )

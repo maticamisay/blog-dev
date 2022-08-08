@@ -4,8 +4,8 @@ import { Button, Container } from "react-bootstrap";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 import "react-quill/dist/quill.snow.css";
-import LoginContext from "../context/LoginContext.js";
-import postServices from "../services/posts.js";
+import LoginContext from "../../context/LoginContext.js";
+import postServices from "../../services/posts.js";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -36,7 +36,6 @@ const CreatePost = () => {
   // function createMarkup() {
   //   return { __html: value };
   // }
-  console.log(token);
   const addPost = (e) => {
     e.preventDefault();
     const postObject = {

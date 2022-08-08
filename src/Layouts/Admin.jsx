@@ -32,7 +32,7 @@ const Admin = () => {
                       Ver mi perfil
                     </Button>
                   </Link>
-                  <Link to={"myposts"}>
+                  <Link to={"mynotes"}>
                     <Button variant="outline-dark" className="container">
                       Ver mis notas
                     </Button>

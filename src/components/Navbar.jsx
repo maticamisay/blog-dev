@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import LoginContext from "../context/LoginContext";
 
 const NavBar = () => {
-  const { user } = useContext(LoginContext);
+  const { isLoggedIn } = useContext(LoginContext);
   return (
     <>
       <Navbar collapseOnSelect bg="dark" variant="dark" expand="md">
@@ -50,7 +50,7 @@ const NavBar = () => {
                 Diseño Ui
               </Nav.Link>
 
-              {user ? (
+              {isLoggedIn ? (
                 <Nav.Item className="px-1">
                   <Link to={"/admin"} className="nav-link">
                     Admin Panel

@@ -4,25 +4,24 @@ import Footer from './components/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Layouts/Home';
 import Login from './Layouts/Login';
-import { LoginProvider } from './context/LoginContext';
+import LoginContext, { LoginProvider } from './context/LoginContext';
 import Admin from './Layouts/Admin';
-import CreatePost from './AdminLayout/CreatePost';
+import CreatePost from './AdminLayout/Components/CreatePost';
 import PrivateRoute from './Routes/PrivateRoute';
-import { useEffect } from 'react';
-
+import { useContext, useEffect } from 'react';
+import MisPosts from './AdminLayout/Components/MisPosts';
 
 function App() {
-  console.log(localStorage.getItem("loggedPostAppUser"));
-  if (localStorage.getItem("loggedPostAppUser")) {
-    setTimeout(() => {
-      localStorage.clear();
-    }, 15000);
-  }
-
+  const { isLogged } = useContext(LoginContext)
+  useEffect(() => {
+    isLogged()
+    console.log('desde useeffect');
+  }, [])
+  
   return (
     <>
       <BrowserRouter>
-        <LoginProvider>
+        {/* <LoginProvider> */}
           <>
             <Navbar />
             <Routes>
@@ -40,9 +39,16 @@ function App() {
                   </PrivateRoute>
                 }
               />
+              <Route path='/admin/myposts'
+                element={
+                  <PrivateRoute>
+                    <MisPosts />
+                  </PrivateRoute>
+                }
+              />
             </Routes>
           </>
-        </LoginProvider>
+        {/* </LoginProvider> */}
         <Footer />
       </BrowserRouter>
     </>

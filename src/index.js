@@ -4,11 +4,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css'
 import './custom.scss';
+import { LoginProvider } from './context/LoginContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <LoginProvider>
+
+      <App />
+    </LoginProvider>
   </React.StrictMode>
 );
 
