@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import loginServices from "../services/login";
 const LoginContext = createContext('');
 
@@ -41,17 +41,23 @@ export function LoginProvider({ defaultValue = [], children }) {
             const tokencito = `Bearer ${token}`
             setToken(tokencito)
             loginServices.checkJWT(username, tokencito).then(e => {
-                if (e.status == 200) {
+                if (e.status === 200) {
                     setUser(e.data.user);
                     setIsLoggedIn(true);
                 }
             })
         } catch (e) {
-            console.log(e)
+           console.log(e);
         }
     }
+
+    const handleLoggedOut = () => {
+        setUser(false);
+        setIsLoggedIn(false)
+        window.localStorage.removeItem('loggedPostAppUser')
+    }
     return (
-        <LoginContext.Provider value={{ token, setToken, isLogged, isLoggedIn, username, setUsername, password, setPassword, handleLogin, errorMessage, user }}>
+        <LoginContext.Provider value={{ token, setToken, isLogged, isLoggedIn, handleLoggedOut, username, setUsername, password, setPassword, handleLogin, errorMessage, user }}>
             {children}
         </LoginContext.Provider>
     )

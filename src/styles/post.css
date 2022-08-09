@@ -1,4 +1,4 @@
-.post{
+.post {
   padding-bottom: 1rem;
 }
 .post-title {
@@ -8,11 +8,15 @@
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
-
-.post-body{
+.post-body {
   display: flex;
 }
-.post-icon{
-font-size: 2rem;
-color: #544030;
+.post-icon {
+  font-size: 2rem;
+  color: #544030;
+}
+.post-link {
+  list-style: none;
+  text-decoration: none !important;
+  color: black !important;
 }

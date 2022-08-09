@@ -10,12 +10,11 @@ import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState([]);
-  const [content2, setContent2] = useState([]);
-
-
+  const [content, setContent] = useState("");
   const { token, setToken } = useContext(LoginContext);
+
   const loggedUserJSON = window.localStorage.getItem("loggedNoteAppUser");
+
   useEffect(() => {
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON);
@@ -41,15 +40,14 @@ const CreatePost = () => {
     e.preventDefault();
     const postObject = {
       title,
-      content: [content,content2]
+      content,
     };
-    console.log(postObject);
     postServices.create(postObject, { token }).then(
       (returnedPost) => {
         console.log(returnedPost);
       },
       function (reason) {
-        console.log("reason"); // Error!
+        console.log(reason); // Error!
         navigate("/login");
       }
     );
@@ -70,12 +68,6 @@ const CreatePost = () => {
         modules={modules}
         value={content}
         onChange={setContent}
-      />
-      <ReactQuill
-        theme="snow"
-        modules={modules}
-        value={content2}
-        onChange={setContent2}
       />
       <Button className="mt-3" onClick={addPost}>
         Crear

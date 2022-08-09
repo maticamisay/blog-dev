@@ -17,7 +17,6 @@ const MisPosts = () => {
       setData(userdata);
     });
   }, []);
-  console.log(data);
   return (
     <Container>
       <h1>{user.username}</h1>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import LoginContext from "../context/LoginContext";
 
 const Admin = () => {
-  const { isLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn, handleLoggedOut } = useContext(LoginContext);
 
   return (
     <Container className="d-flex justify-content-center my-5 login-container">
@@ -33,8 +33,8 @@ const Admin = () => {
                     </Button>
                   </Link>
                   <Link to={"mynotes"}>
-                    <Button variant="outline-dark" className="container">
-                      Ver mis notas
+                    <Button variant="outline-dark" className="container" onClick={handleLoggedOut}>
+                      Cerrar sesión
                     </Button>
                   </Link>
                 </Col>

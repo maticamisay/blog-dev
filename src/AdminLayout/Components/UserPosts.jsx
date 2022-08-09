@@ -3,7 +3,6 @@ import { Row } from 'react-bootstrap';
 import Post from '../../components/Post';
 
 const UserPosts = ({data}) => {
-    console.log('hola');
   return (
     <Row className="justify-content-center">
 
