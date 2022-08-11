@@ -8,7 +8,7 @@ const PostDetail = () => {
   const [data, setData] = useState("");
   useEffect(() => {
     postService.getAll().then((initialPosts) => {
-      setData(initialPosts.find((post) => post.id == postId));
+      setData(initialPosts.find((post) => post.id === postId));
     });
   }, [postId]);
   function createMarkup(value) {
@@ -20,10 +20,14 @@ const PostDetail = () => {
         dangerouslySetInnerHTML={createMarkup(data.title)}
         className="post-detail-title"
       ></h1>
+      <div className="text-center">
+        <img src={data.imgSrc} alt="" width={300} />
+      </div>
       <p
         dangerouslySetInnerHTML={createMarkup(data.content)}
         className="post-detail-content"
       />
+      {data && <small>Creado por: {data.user.username}</small>}
     </Container>
   );
 };
