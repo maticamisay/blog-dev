@@ -12,6 +12,7 @@ import { useContext, useEffect } from 'react';
 import MisPosts from './AdminLayout/Components/MisPosts';
 import PostDetail from './components/PostDetail';
 import Profile from './AdminLayout/Components/Profile';
+import AllBlogs from './Layouts/AllBlogs';
 
 function App() {
   const { isLogged, isLoggedIn } = useContext(LoginContext)
@@ -30,6 +31,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/allblogs' element={<AllBlogs />} />
           <Route path='/login' element={<Login />} />
           <Route path='/post/:postId' element={<PostDetail />} />
           <Route path='/admin'

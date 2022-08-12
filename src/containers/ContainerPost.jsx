@@ -6,7 +6,7 @@ const ContainerPost = ({ title, titleBtn, data }) => {
   return (
     <PostLayout title={title} titleBtn={titleBtn}>
       <Row className="justify-content-center">
-        {data ? data.slice(0, 4).map((post) => <Post post={post} key={post.id}/>) : "cargando"}
+        {data ? data.slice(0, 3).map((post) => <Post post={post} key={post.id}/>) : "cargando"}
       </Row>
     </PostLayout>
   );

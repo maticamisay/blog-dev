@@ -25,7 +25,7 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="px-3">
-              <NavDropdown
+              {/* <NavDropdown
                 title="Frontend"
                 id="basic-nav-dropdown"
                 className="px-1"
@@ -48,7 +48,7 @@ const NavBar = () => {
               </NavDropdown>
               <Nav.Link href="#diseño-ui" className="px-1">
                 Diseño Ui
-              </Nav.Link>
+              </Nav.Link> */}
 
               {isLoggedIn ? (
                 <Nav.Item className="px-1">

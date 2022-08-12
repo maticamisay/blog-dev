@@ -43,6 +43,7 @@ const CreatePost = () => {
       imgSrc,
       content,
     };
+    console.log(token);
     postServices.create(postObject, { token }).then(
       (returnedPost) => {
         console.log(returnedPost);
@@ -63,21 +64,21 @@ const CreatePost = () => {
         className="d-flex align-items-center justify-content-center row"
         onSubmit={addPost}
       >
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasic">
           <Form.Label>Titulo del blog</Form.Label>
           <Form.Control
             type="text"
             value={title}
-            placeholder="Ingresa tu usuario"
+            placeholder="Ingrese el título"
             onChange={({ target }) => setTitle(target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasic">
           <Form.Label>Source de la imagen de Preview</Form.Label>
           <Form.Control
             type="text"
             value={imgSrc}
-            placeholder="Ingresa tu usuario"
+            placeholder="Ingrese la dirección de la imagen del post"
             onChange={({ target }) => setImgSrc(target.value)}
           />
         </Form.Group>
@@ -97,9 +98,11 @@ const CreatePost = () => {
           onChange={setContent}
         />
         {/* <Button className="mt-3" onClick={addPost}> */}
-        <Button className="mt-3" type="submit">
-          Crear
-        </Button>
+        <Container className="d-flex justify-content-center row">
+          <Button className="mt-3" type="submit">
+            Crear
+          </Button>
+        </Container>
       </Form>
       {/* <h2>Titulo del blog</h2>
       <ReactQuill

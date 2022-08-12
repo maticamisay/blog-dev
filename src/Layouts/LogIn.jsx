@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -14,17 +14,34 @@ const Login = () => {
     setPassword,
     handleLogin,
   } = useContext(LoginContext);
+  const [isLoading, setLoading] = useState(false);
+
   let navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin(username, password);
+    if (!isLoading) {
+      handleClick();
+    }
   };
+
   const Navigate = () => {
     isLoggedIn && navigate("/admin");
   };
+
+  function simulateNetworkRequest() {
+    return new Promise((resolve) => setTimeout(resolve, 2000));
+  }
+  const handleClick = () => setLoading(true);
   useEffect(() => {
-    Navigate();
-  }, [isLoggedIn]);
+    if (isLoading) {
+      simulateNetworkRequest().then(() => {
+        setLoading(false);
+        Navigate();
+      });
+    }
+  }, [isLoading, isLoggedIn]);
 
   return (
     <Container className="d-flex justify-content-center align-items-center my-5 login-container">
@@ -66,8 +83,13 @@ const Login = () => {
             Olvidé mi contraseña
           </Link>
           <Col lg={8} xs={12} className="d-flex row justify-content-center">
-            <Button variant="primary" type="submit">
-              Iniciar sesión
+            <Button
+              variant="primary"
+              type="submit"
+              disabled={isLoading}
+              // onClick={!isLoading ? handleClick : null}
+            >
+              {isLoading ? "Iniciando sesión..." : "Iniciar sesión"}
             </Button>
           </Col>
         </Form>
