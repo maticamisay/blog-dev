@@ -11,6 +11,7 @@ import PrivateRoute from './Routes/PrivateRoute';
 import { useContext, useEffect } from 'react';
 import MisPosts from './AdminLayout/Components/MisPosts';
 import PostDetail from './components/PostDetail';
+import Profile from './AdminLayout/Components/Profile';
 
 function App() {
   const { isLogged, isLoggedIn } = useContext(LoginContext)
@@ -47,6 +48,13 @@ function App() {
             element={
               <PrivateRoute>
                 <MisPosts />
+              </PrivateRoute>
+            }
+          />
+          <Route path='/admin/perfil'
+            element={
+              <PrivateRoute>
+                <Profile />
               </PrivateRoute>
             }
           />
