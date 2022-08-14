@@ -13,6 +13,7 @@ import MisPosts from './AdminLayout/Components/MisPosts';
 import PostDetail from './components/PostDetail';
 import Profile from './AdminLayout/Components/Profile';
 import AllBlogs from './Layouts/AllBlogs';
+import Search from './Layouts/Search';
 
 function App() {
   const { isLogged, isLoggedIn } = useContext(LoginContext)
@@ -31,6 +32,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/search/:search' element={<Search />} />
           <Route path='/allblogs' element={<AllBlogs />} />
           <Route path='/login' element={<Login />} />
           <Route path='/post/:postId' element={<PostDetail />} />

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useContext } from "react";
 import {
   Navbar,
@@ -8,11 +9,18 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginContext from "../context/LoginContext";
 
 const NavBar = () => {
   const { isLoggedIn } = useContext(LoginContext);
+  const [search, setSearch] = useState("");
+  let navigate = useNavigate();
+  const handleSearch = (event) => {
+    event.preventDefault();
+    navigate(`/search/${search}`)
+    setSearch('')
+  };
   return (
     <>
       <Navbar collapseOnSelect bg="dark" variant="dark" expand="md">
@@ -64,14 +72,18 @@ const NavBar = () => {
                 </Nav.Item>
               )}
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={handleSearch}>
               <FormControl
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={search}
+                onChange={({ target }) => setSearch(target.value)}
               />
-              <Button variant="primary">Search</Button>
+              <Button variant="primary" type="submit">
+                Buscar
+              </Button>
             </Form>
           </Navbar.Collapse>
         </Container>
