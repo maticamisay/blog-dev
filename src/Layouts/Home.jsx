@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
-import postService from '../services/posts';
+import { useEffect, useState } from "react";
+import postService from "../services/posts";
 import Hero from "../components/Hero";
 import ContainerPost from "../containers/ContainerPost";
 // import ContainerTag from "../containers/ContainerTag";
 import Categories from "../components/Categories";
 import ContainerSuscribirse from "../containers/ContainerSuscribirse";
 import ContainerBuscador from "../containers/ContainerBuscador";
+import { Container } from "react-bootstrap";
 
 const Home = () => {
   const [data, setData] = useState("");
@@ -19,7 +20,11 @@ const Home = () => {
     <>
       <Hero />
       <Categories />
-      <ContainerPost title={"Ultimos Posts"} titleBtn={"Ver más"} data={data} />
+        <ContainerPost
+          title={"Ultimos Posts"}
+          titleBtn={"Ver más"}
+          data={data}
+        />
       {/* <ContainerPost
         title={"Posts más leídos"}
         titleBtn={"Ver más"}
