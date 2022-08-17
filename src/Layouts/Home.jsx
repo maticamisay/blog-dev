@@ -6,7 +6,6 @@ import ContainerPost from "../containers/ContainerPost";
 import Categories from "../components/Categories";
 import ContainerSuscribirse from "../containers/ContainerSuscribirse";
 import ContainerBuscador from "../containers/ContainerBuscador";
-import { Container } from "react-bootstrap";
 
 const Home = () => {
   const [data, setData] = useState("");
